@@ -17,4 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/markxnelson/docker-test:${GITHUB_RUN_NUMBER}
     - name: Push the Docker image
-      run: docker push docker.pkg.github.com/markxnelson/docker-test:${GITHUB_RUN_NUMBER}
+      uses: mattdavis0351/actions/docker-gpr@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        image-name: docker.pkg.github.com/markxnelson/docker-test:${GITHUB_RUN_NUMBER}
