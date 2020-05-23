@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/markxnelson/docker-test:$(date +%s)
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/markxnelson/docker-test:${GITHUB_RUN_NUMBER}
     - name: Push the Docker image
-      run: docker push docker.pkg.github.com/markxnelson/docker-test:$(date +%s)
+      run: docker push docker.pkg.github.com/markxnelson/docker-test:${GITHUB_RUN_NUMBER}
