@@ -1,2 +1,2 @@
 FROM ubuntu
-RUN apt install htop
+RUN apt-get update &&  apt-get install htop
